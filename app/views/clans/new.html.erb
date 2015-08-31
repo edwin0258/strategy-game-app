@@ -1,0 +1,7 @@
+<h1>Create a Clan</h1>
+
+<%= form_for @clan do |form| %>
+	<%= form.text_field :name, placeholder: "Clan Name" %>
+	<%= form.text_field :description, placeholder: "Clan Description" %>
+	<%= form.submit "Create"%>
+<% end %>

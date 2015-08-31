@@ -3,6 +3,7 @@
 	<%= link_to "Profile", user_path(current_user) %>
 	<%= current_user.username %>
 	<%= link_to "Logout", logout_path %>
+	<%= link_to "Clans", clans_path %>
 <% else %>
 	<%= link_to "Overview", root_path %>
 	<%= link_to "Login", login_path %>

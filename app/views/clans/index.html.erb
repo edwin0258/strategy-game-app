@@ -1,0 +1,7 @@
+<%= link_to "New Clan", new_clan_path %>
+<h1>Clans</h1>
+
+<% @clans.each do |clan| %>
+	<%= link_to clan.name, clan_path(clan) %>
+	<%= clan.user.username %>
+<% end %>
