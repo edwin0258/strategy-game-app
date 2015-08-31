@@ -1,1 +1,5 @@
 <h1><%= @clan.name %></h1>
+<h3>Members</h3>
+<% @relationships.each do |relationship| %>
+	<%= relationship.member.name %>
+<% end %>

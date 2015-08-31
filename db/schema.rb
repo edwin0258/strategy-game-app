@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150831020730) do
+ActiveRecord::Schema.define(version: 20150831201047) do
 
   create_table "clans", force: :cascade do |t|
     t.string   "name"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 20150831020730) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "clan_id"
+    t.integer  "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "relationships", ["clan_id", "member_id"], name: "index_relationships_on_clan_id_and_member_id", unique: true
+  add_index "relationships", ["clan_id"], name: "index_relationships_on_clan_id"
+  add_index "relationships", ["member_id"], name: "index_relationships_on_member_id"
 
   create_table "resources", force: :cascade do |t|
     t.string   "name"

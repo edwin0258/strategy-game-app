@@ -7,6 +7,7 @@ class ClansController < ApplicationController
 	end
 	def show
 		@clan = Clan.find(params[:id])
+		@relationships = @clan.passive_relationships
 	end
 	def create
 		@clan = Clan.new(clan_params)
