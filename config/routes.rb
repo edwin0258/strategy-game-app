@@ -8,4 +8,9 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy'
   resources :clans
+  resources :resources do 
+    member do
+      post 'purchase'
+    end
+  end
 end

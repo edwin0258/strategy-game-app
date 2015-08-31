@@ -1,0 +1,5 @@
+<h1><%= @resource.name %></h1><br>
+<%= @resource.description %>
+<%= form_tag(purchase_resource_path, method: 'post') do %>
+	<%= submit_tag "buy one" %>
+<% end %>
