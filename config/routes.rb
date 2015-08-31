@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :users, except: [:new]
+  get 'register' => 'users#new'
   root 'pages#welcome'
   resources :pages
+  resources :sessions, except: [:new, :create, :destroy]
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  get 'logout' => 'sessions#destroy'
 end
