@@ -1,5 +1,6 @@
 <br>
 <h1><b><%= @user.username %></b></h1>
-<% @purchases.each do |purchase| %>
-	<%= purchase.resource.name %>
+<%= @user.affiliation %>
+<% @user.active_relationships.each do |relationship| %>
+	<%= relationship.clan.name %>
 <% end %>
