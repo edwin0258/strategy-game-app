@@ -1,6 +1,7 @@
 <br>
 <h1><b><%= @user.username %></b></h1>
-<%= @user.affiliation %>
+<b>Class: </b><%= @user.affiliation %><br>
+<b>Clans: </b>
 <% @user.active_relationships.each do |relationship| %>
 	<%= relationship.clan.name %>
 <% end %>

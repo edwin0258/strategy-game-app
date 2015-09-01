@@ -4,4 +4,5 @@
 <% @clans.each do |clan| %>
 	<%= link_to clan.name, clan_path(clan) %>
 	<%= clan.user.username if clan.user %>
+	<%= clan.passive_relationships.count %><br>
 <% end %>

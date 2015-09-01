@@ -5,8 +5,9 @@ class RelationshipsController < ApplicationController
 		redirect_to :back
 	end
 	def destroy
-		clan = Relationship.find(params[:id]).member
-		current_user.unjoin(clan)
+		user = Relationship.find_by(params[:id]).member
+		clan = Relationship.find(params[:id]).clan
+		current_user.unjoin(user, clan)
 		redirect_to :back
 	end
 

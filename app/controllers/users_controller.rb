@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 	end
 	def create
 		@user = User.new(user_params)
+		@user.attack = 2
 		if @user.save
 			redirect_to login_path
 		else
@@ -17,7 +18,7 @@ class UsersController < ApplicationController
 
 	private
 		def user_params
-			params.require(:user).permit(:name,:username,:email,:password, :affiliation)
+			params.require(:user).permit(:name,:username,:email,:password, :affiliation, :attack)
 		end
 
 end

@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
 	def join(clan)
 		active_relationships.create(clan_id: clan.id)
 	end
-	def unjoin(clan)
-		active_relationships.find_by(clan_id: clan.id).destroy
+	def unjoin(user, clan)
+		active_relationships.find_by(member: user.id, clan: clan.id).destroy
 	end
 	def member?(clan)
 		memberships.include?(clan)

@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy'
-  resources :clans
+  resources :clans do
+    member do
+      post 'attack'
+    end
+  end
   resources :resources do 
     member do
       post 'purchase'

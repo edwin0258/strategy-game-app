@@ -5,13 +5,15 @@
 		<div><%= f.submit "unJoin" %></div>
 	<% end %>
 	<% else %>
-	<%= form_for(current_user.active_relationships.build) do |f| %>
+	<%= form_for(current_user.active_relationships.build(clan_id: @clan.id)) do |f| %>
 		<%= hidden_field_tag :clan_id, @clan.id %>
 		<div><%= f.submit "Join" %></div>
 		<% end %>
+	<%= link_to "Attack", attack_clan_path, method: :post %>
 	<% end %>
 <% end %>
 <h3>Members</h3>
 <% @relationships.each do |relationship| %>
 	<%= relationship.member.name %>
-<% end %>
+<% end %><br>
+<b>Power: </b><%= @clan.power if @clan.power %>
