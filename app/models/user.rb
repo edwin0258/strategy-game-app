@@ -10,9 +10,13 @@ class User < ActiveRecord::Base
 	has_many :memberships, through: :active_relationships, source: :clan
 	def join(clan)
 		active_relationships.create(clan_id: clan.id)
+		clan.power = clan.power += 10
+		clan.save
 	end
-	def unjoin(user, clan)
-		active_relationships.find_by(member: user.id, clan: clan.id).destroy
+	def unjoin(clan)
+		active_relationships.find_by(clan: clan).destroy
+		clan.power = clan.power -= 10
+		clan.save
 	end
 	def member?(clan)
 		memberships.include?(clan)
